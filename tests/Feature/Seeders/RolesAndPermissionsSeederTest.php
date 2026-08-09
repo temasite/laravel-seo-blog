@@ -3,6 +3,7 @@
 namespace Tests\Feature\Seeders;
 
 use Database\Seeders\RolesAndPermissionsSeeder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -34,5 +35,13 @@ class RolesAndPermissionsSeederTest extends TestCase
 
         $this->assertSame(2, Role::count());
         $this->assertSame(19, Permission::count());
+    }
+
+    public function test_it_assigns_permissions_when_model_events_are_disabled(): void
+    {
+        Model::withoutEvents(fn () => $this->seed(RolesAndPermissionsSeeder::class));
+
+        $this->assertTrue(Role::findByName('admin')->hasPermissionTo('admin.access'));
+        $this->assertTrue(Role::findByName('manager')->hasPermissionTo('admin.access'));
     }
 }

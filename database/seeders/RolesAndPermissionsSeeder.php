@@ -65,6 +65,8 @@ class RolesAndPermissionsSeeder extends Seeder
             Permission::findOrCreate($permission, self::GUARD);
         }
 
+        $permissionRegistrar->forgetCachedPermissions();
+
         $admin = Role::findOrCreate('admin', self::GUARD);
         $manager = Role::findOrCreate('manager', self::GUARD);
 
