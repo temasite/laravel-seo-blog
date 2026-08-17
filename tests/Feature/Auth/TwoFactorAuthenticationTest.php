@@ -31,7 +31,9 @@ class TwoFactorAuthenticationTest extends TestCase
 
         $this->get(route('password.confirm'))
             ->assertOk()
-            ->assertSee('Confirm your password');
+            ->assertSee('Confirm your password')
+            ->assertSee('Back to dashboard')
+            ->assertSee('href="'.route('admin.dashboard').'"', false);
     }
 
     public function test_user_can_enable_and_confirm_two_factor_authentication(): void

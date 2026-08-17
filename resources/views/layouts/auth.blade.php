@@ -9,7 +9,7 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="min-h-full bg-stone-100 font-sans text-stone-950 antialiased">
+    <body class="min-h-full bg-[#F5F5F7] font-sans text-[#111827] antialiased">
         @yield('content')
     </body>
 </html>
