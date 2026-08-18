@@ -65,6 +65,24 @@
             <path d="M5 12h14M13 6l6 6-6 6" />
             @break
 
+        @case('arrow-left')
+            <path d="M19 12H5M11 18l-6-6 6-6" />
+            @break
+
+        @case('plus')
+            <path d="M12 5v14M5 12h14" />
+            @break
+
+        @case('search')
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-4-4" />
+            @break
+
+        @case('edit')
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+            @break
+
         @case('lock')
             <rect x="4" y="10" width="16" height="11" rx="2" />
             <path d="M8 10V7a4 4 0 0 1 8 0v3" />

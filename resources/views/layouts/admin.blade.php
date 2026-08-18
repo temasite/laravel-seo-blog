@@ -77,9 +77,16 @@
                     @endif
 
                     @if (Route::has('admin.users.index') && $adminUser?->can('users.view'))
-                        <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] text-[#94A3B8] transition-colors hover:bg-[#1E293B]/60 hover:text-white">
-                            <x-admin.icon name="users" class="size-[18px]" />
-                            <span>Managers</span>
+                        <a
+                            href="{{ route('admin.users.index') }}"
+                            @class([
+                                'flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] transition-colors',
+                                'bg-[#1E293B] font-semibold text-white' => request()->routeIs('admin.users.*'),
+                                'text-[#94A3B8] hover:bg-[#1E293B]/60 hover:text-white' => ! request()->routeIs('admin.users.*'),
+                            ])
+                        >
+                            <x-admin.icon name="users" @class(['size-[18px]', 'text-[#818CF8]' => request()->routeIs('admin.users.*')]) />
+                            <span>Users</span>
                         </a>
                     @endif
 

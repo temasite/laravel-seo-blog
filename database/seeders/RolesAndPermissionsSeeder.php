@@ -21,6 +21,7 @@ class RolesAndPermissionsSeeder extends Seeder
         'users.update',
         'users.suspend',
         'users.restore',
+        'users.delete',
         'users.reset-password',
         'users.manage-api-keys',
         'articles.view',

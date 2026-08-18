@@ -79,10 +79,6 @@
                             <dd class="font-mono text-[11px] font-semibold text-[#374151]">#{{ $user->id }}</dd>
                         </div>
                         <div class="flex items-center justify-between gap-4 py-3">
-                            <dt class="text-[11px] text-[#6B7280]">Email verified</dt>
-                            <dd class="text-right text-[11px] font-semibold text-[#374151]">{{ $user->email_verified_at?->format('M j, Y · H:i') ?? 'Not verified' }}</dd>
-                        </div>
-                        <div class="flex items-center justify-between gap-4 py-3">
                             <dt class="text-[11px] text-[#6B7280]">Last sign in</dt>
                             <dd class="text-right text-[11px] font-semibold text-[#374151]">{{ $user->last_login_at?->format('M j, Y · H:i') ?? 'Never' }}</dd>
                         </div>

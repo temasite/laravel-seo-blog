@@ -21,6 +21,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         $manager = Role::findByName('manager');
 
         $this->assertCount(Permission::count(), $admin->permissions);
+        $this->assertTrue($admin->hasPermissionTo('users.delete'));
         $this->assertTrue($manager->hasPermissionTo('admin.access'));
         $this->assertTrue($manager->hasPermissionTo('articles.publish'));
         $this->assertTrue($manager->hasPermissionTo('categories.delete'));
@@ -34,7 +35,7 @@ class RolesAndPermissionsSeederTest extends TestCase
         $this->seed(RolesAndPermissionsSeeder::class);
 
         $this->assertSame(2, Role::count());
-        $this->assertSame(19, Permission::count());
+        $this->assertSame(20, Permission::count());
     }
 
     public function test_it_assigns_permissions_when_model_events_are_disabled(): void
