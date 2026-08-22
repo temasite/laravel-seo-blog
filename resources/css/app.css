@@ -16,3 +16,17 @@
 [data-banner-selection] {
     box-shadow: 0 0 0 9999px rgb(15 23 42 / 68%);
 }
+
+.tox.tox-tinymce {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.tox.tox-tinymce:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgb(99 102 241 / 10%);
+}
+
+.tox .tox-statusbar {
+    border-top-color: #e5e7eb;
+}

@@ -1,3 +1,11 @@
+const richTextEditors = document.querySelectorAll('[data-rich-text-editor]');
+
+if (richTextEditors.length > 0) {
+    import('./rich-text-editor.js').then(({ initializeRichTextEditors }) => {
+        initializeRichTextEditors(richTextEditors);
+    });
+}
+
 const adminSidebar = document.querySelector('[data-admin-sidebar]');
 
 if (adminSidebar) {

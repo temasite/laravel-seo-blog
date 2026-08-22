@@ -57,6 +57,7 @@ class CategoryManagementTest extends TestCase
             ->get(route('admin.categories.create'))
             ->assertOk()
             ->assertSee('Create a category')
+            ->assertSee('data-rich-text-editor', false)
             ->assertSee('enctype="multipart/form-data"', false);
 
         $this->actingAs($manager)
@@ -64,6 +65,25 @@ class CategoryManagementTest extends TestCase
             ->assertOk()
             ->assertSee('Edit Engineering')
             ->assertSee('Delete category');
+    }
+
+    public function test_manager_can_save_a_formatted_category_description(): void
+    {
+        $manager = $this->createUserWithRole('manager');
+        $description = '<p><strong>Featured</strong> articles.</p><ul><li>Guides</li></ul>';
+
+        $this->actingAs($manager)
+            ->post(route('admin.categories.store'), [
+                'name' => 'Featured content',
+                'description' => $description,
+                'slug' => 'featured-content',
+            ])
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseHas('categories', [
+            'slug' => 'featured-content',
+            'description' => $description,
+        ]);
     }
 
     public function test_manager_can_create_a_category_with_a_banner(): void

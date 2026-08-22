@@ -44,7 +44,9 @@
         name="description"
         rows="6"
         class="block w-full resize-y rounded-lg border border-[#D1D5DB] bg-white px-3.5 py-3 text-[13px] leading-6 text-[#111827] outline-none transition focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/10"
+        data-rich-text-editor
     >{{ old('description', $category?->description) }}</textarea>
+    <p class="mt-2 text-[11px] leading-5 text-[#6B7280]">Use the toolbar to format the category description.</p>
     @error('description')
         <p class="mt-2 text-[12px] text-[#B91C1C]">{{ $message }}</p>
     @enderror
