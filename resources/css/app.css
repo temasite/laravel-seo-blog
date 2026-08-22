@@ -7,3 +7,12 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+[data-banner-dialog]::backdrop {
+    background: rgb(15 23 42 / 72%);
+    backdrop-filter: blur(2px);
+}
+
+[data-banner-selection] {
+    box-shadow: 0 0 0 9999px rgb(15 23 42 / 68%);
+}

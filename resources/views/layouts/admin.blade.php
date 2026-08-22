@@ -70,8 +70,15 @@
                     @endif
 
                     @if (Route::has('admin.categories.index') && $adminUser?->can('categories.view'))
-                        <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] text-[#94A3B8] transition-colors hover:bg-[#1E293B]/60 hover:text-white">
-                            <x-admin.icon name="folder" class="size-[18px]" />
+                        <a
+                            href="{{ route('admin.categories.index') }}"
+                            @class([
+                                'flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] transition-colors',
+                                'bg-[#1E293B] font-semibold text-white' => request()->routeIs('admin.categories.*'),
+                                'text-[#94A3B8] hover:bg-[#1E293B]/60 hover:text-white' => ! request()->routeIs('admin.categories.*'),
+                            ])
+                        >
+                            <x-admin.icon name="folder" @class(['size-[18px]', 'text-[#818CF8]' => request()->routeIs('admin.categories.*')]) />
                             <span>Categories</span>
                         </a>
                     @endif
